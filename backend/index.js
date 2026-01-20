@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const cors = require("cors");
 const { drizzle } = require("drizzle-orm/node-postgres");
-const { default: crs } = require("crypto-random-string");
+const crs = import("crypto-random-string");
 const jwt = require("jsonwebtoken");
 const { pbkdf2 } = require("pbkdf2");
 const { usersTable } = require("./schema");
@@ -33,7 +33,7 @@ app.get("/user/me", async (req, res) => {
   return res.json({ status: true });
 });
 
-const createSalt = () => crs({ length: 64 });
+const createSalt = async () => (await crs).default({ length: 64 });
 const createHash = (password, salt) =>
   new Promise((resolve, reject) => {
     pbkdf2(password, salt, 10000, 64, "sha512", (err, hash) => {
@@ -44,7 +44,7 @@ const createHash = (password, salt) =>
 
 app.post("/user/register", async (req, res) => {
   const details = await loginValdiator.parseAsync(req.body);
-  const salt = createSalt();
+  const salt = await createSalt();
   const hash = await createHash(details.password, salt);
 
   try {
