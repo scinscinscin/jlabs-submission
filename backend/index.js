@@ -38,7 +38,7 @@ const createHash = (password, salt) =>
   new Promise((resolve, reject) => {
     pbkdf2(password, salt, 10000, 64, "sha512", (err, hash) => {
       if (err) return reject(err);
-      resolve(hash.toString("utf8"));
+      resolve(hash.toString("base64"));
     });
   });
 
