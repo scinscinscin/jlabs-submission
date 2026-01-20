@@ -1,0 +1,149 @@
+.homepage {
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+
+  button {
+    flex: 2;
+    border-radius: 6px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 100%;
+
+    transform: scale(1);
+    transition: transform 0.15s ease-in-out;
+  }
+
+  button:hover {
+    transform: scale(1.03);
+    transition: transform 0.15s ease-in-out;
+  }
+
+  button:disabled {
+    background-color: grey;
+    border: 1px solid grey;
+    color: white;
+    cursor: not-allowed;
+  }
+
+  .destructive {
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+  }
+}
+
+.selected-ip {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+
+  border-radius: 6px;
+  padding: 30px;
+  box-shadow: 2px 10px 36px -14px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 10px 36px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 10px 36px -14px rgba(0, 0, 0, 0.75);
+
+  ul {
+    list-style-position: inside;
+
+    li {
+      font-size: 16px;
+    }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    code {
+      font-family: "Consolas", "Courier New", Courier, monospace;
+    }
+  }
+
+  .map-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+}
+
+.searchbar_container {
+  border-radius: 6px;
+  padding: 30px;
+  box-shadow: 2px 10px 36px -14px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 10px 36px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 10px 36px -14px rgba(0, 0, 0, 0.75);
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  .searchbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input,
+    button {
+      display: block;
+      width: 100%;
+    }
+
+    input {
+      flex: 8;
+      border-radius: 4px;
+      padding: 6px 12px;
+      border: 2px solid #ccc;
+      font-size: 16px;
+    }
+  }
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .search {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+    .checkbox_wrap {
+      min-width: 30px;
+      max-width: 30px;
+    }
+
+    input[type="checkbox"]:disabled {
+      filter: invert(0.5);
+    }
+
+    .info {
+      flex: 1;
+    }
+
+    .ip {
+      font-size: 20px;
+      font-weight: bold;
+
+      code {
+        font-family: "Consolas", "Courier New", Courier, monospace;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}
